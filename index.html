@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Bashiir Mohamed | IT Student & Computer Applications Specialist</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #080c14;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --bg-card-hover: rgba(30, 41, 59, 0.85);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(59, 130, 246, 0.4);
+            
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.25);
+            --accent-light: #60a5fa;
+            --accent-dark: #1d4ed8;
+            
+            --radius-sm: 10px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Fluid Typography via clamp() */
+            --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.88rem);
+            --step-0: clamp(0.95rem, 0.91rem + 0.2vw, 1.1rem);
+            --step-1: clamp(1.15rem, 1.07rem + 0.4vw, 1.38rem);
+            --step-2: clamp(1.4rem, 1.26rem + 0.7vw, 1.8rem);
+            --step-3: clamp(1.8rem, 1.55rem + 1.25vw, 2.5rem);
+            --step-4: clamp(2.3rem, 1.85rem + 2.25vw, 3.6rem);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Container Layout System */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-left: clamp(16px, 4vw, 32px);
+            padding-right: clamp(16px, 4vw, 32px);
+        }
+
+        /* Fluid Auto-Fit Responsive Grid Utilities */
+        .auto-grid-300 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: clamp(16px, 2.5vw, 28px);
+        }
+
+        .auto-grid-250 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(16px, 2vw, 24px);
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: var(--transition-smooth);
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(96, 165, 250, 0.35);
+            box-shadow: 0 12px 40px 0 rgba(59, 130, 246, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .glass-nav {
+            background: rgba(8, 12, 20, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 100px;
+            color: var(--accent-light);
+            font-size: var(--step--1);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: var(--step-3);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin-bottom: 14px;
+            line-height: 1.25;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: var(--step-0);
+            max-width: 680px;
+            margin-bottom: clamp(28px, 5vw, 48px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Buttons with Guaranteed 48px+ Touch Targets */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 12px 26px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: var(--step-0);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 28px rgba(59, 130, 246, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-glass);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            min-height: 44px;
+            padding: 8px 18px;
+            font-size: var(--step--1);
+            border-radius: 10px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: clamp(70px, 9vh, 84px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: clamp(1rem, 1.2vw, 1.25rem);
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .pic-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-light);
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: clamp(16px, 2.2vw, 32px);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 4px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-light);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            color: #fff;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mobile Menu Overlay Drawer */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(8, 12, 20, 0.96);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: 90px 24px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-menu a.mobile-nav-item {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 14px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+        }
+
+        .mobile-menu a.mobile-nav-item:hover {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-light);
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links, .desktop-cv-btn { display: none !important; }
+            .mobile-toggle { display: flex; }
+        }
+
+        section {
+            padding: clamp(60px, 10vh, 110px) 0;
+            position: relative;
+        }
+
+        #home {
+            padding-top: clamp(110px, 15vh, 160px);
+            padding-bottom: clamp(60px, 8vh, 100px);
+            overflow: hidden;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: clamp(32px, 5vw, 64px);
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .hero-content h1 {
+            font-size: var(--step-4);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 14px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-content h2 {
+            font-size: var(--step-2);
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-bio {
+            color: var(--text-muted);
+            font-size: var(--step-0);
+            margin-bottom: 36px;
+            max-width: 620px;
+        }
+
+        @media (max-width: 992px) {
+            .hero-bio {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        @media (max-width: 992px) {
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        .social-strip {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 992px) {
+            .social-strip {
+                justify-content: center;
+            }
+        }
+
+        .social-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: var(--step--1);
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .social-chip:hover {
+            background: rgba(59, 130, 246, 0.18);
+            border-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .social-chip img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Hero Frame and Floating Badges */
+        .hero-frame-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-frame {
+            position: relative;
+            width: min(100%, 360px);
+            aspect-ratio: 4/5;
+            border-radius: var(--radius-lg);
+            padding: 12px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.4), rgba(255,255,255,0.05));
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: clamp(14px, 2vw, 20px);
+            filter: contrast(1.05);
+        }
+
+        .floating-badge {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            animation: floatAnim 4s ease-in-out infinite alternate;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .floating-badge img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .floating-badge span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+            text-align: left;
+        }
+
+        .badge-1 { top: 15px; left: -25px; animation-delay: 0s; }
+        .badge-2 { bottom: 40px; right: -20px; animation-delay: 1.5s; }
+        .badge-3 { bottom: -20px; left: 10px; animation-delay: 2.5s; }
+
+        @media (max-width: 576px) {
+            .badge-1 { left: -10px; top: -10px; }
+            .badge-2 { right: -10px; bottom: 20px; }
+            .badge-3 { left: 0px; bottom: -25px; }
+        }
+
+        @keyframes floatAnim {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-12px); }
+        }
+
+        .stat-card {
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .stat-card img {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            flex-shrink: 0;
+        }
+
+        .stat-number {
+            font-size: var(--step-2);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: var(--step--1);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* About Table Cards */
+        .info-item {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-sm);
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Technical Skill Cards */
+        .skill-card {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .picture-card-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 18px;
+            filter: brightness(0.92) contrast(1.05);
+            transition: var(--transition-smooth);
+        }
+
+        .glass-card:hover .picture-card-img {
+            filter: brightness(1) contrast(1.1);
+            transform: scale(1.03);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tech-badge {
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            font-size: 0.78rem;
+            color: var(--accent-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: clamp(20px, 4vw, 36px);
+            border-left: 2px solid var(--border-glass);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: calc(-1 * clamp(20px, 4vw, 36px) - 10px);
+            top: 24px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 12px var(--primary-glow);
+        }
+
+        .timeline-card {
+            padding: clamp(20px, 3vw, 32px);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .timeline-role {
+            font-size: var(--step-1);
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .timeline-company {
+            color: var(--accent-light);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .timeline-period {
+            font-size: var(--step--1);
+            color: var(--text-dim);
+            padding: 4px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+        }
+
+        .experience-bullets {
+            list-style: none;
+            margin-top: 14px;
+        }
+
+        .experience-bullets li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: var(--step-0);
+        }
+
+        .experience-bullets li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .timeline-media {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .timeline-media img {
+            width: 140px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid var(--border-glass);
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+
+        .timeline-media img:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .project-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            min-height: 48px;
+            padding: 10px 22px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 100px;
+            color: var(--text-muted);
+            font-size: var(--step--1);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 18px var(--primary-glow);
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-img-wrapper {
+            position: relative;
+            height: 210px;
+            overflow: hidden;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.08);
+        }
+
+        .project-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: var(--step-1);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: var(--step-0);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .service-card {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: var(--step-0);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .lang-card {
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .lang-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid var(--border-glass);
+            flex-shrink: 0;
+        }
+
+        .feature-card {
+            padding: 24px;
+            height: 100%;
+        }
+
+        .feature-card h4 {
+            font-size: var(--step-1);
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: var(--step-0);
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(15, 23, 42, 0.85));
+            border: 1px solid var(--border-glow);
+            padding: clamp(36px, 6vw, 64px) clamp(20px, 4vw, 40px);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-banner h2 {
+            font-size: var(--step-3);
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(24px, 4vw, 40px);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        .contact-card-item {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .contact-card-item img {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            padding: clamp(20px, 4vw, 36px);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: var(--step--1);
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: var(--step-0);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 14px var(--primary-glow);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-glass);
+            background: rgba(8, 12, 20, 0.98);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-dim);
+            font-size: var(--step--1);
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            z-index: 900;
+            box-shadow: 0 4px 20px var(--primary-glow);
+            font-size: 1.2rem;
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Modal Popup System */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            max-width: 600px;
+            width: 100%;
+            padding: clamp(24px, 4vw, 36px);
+            border-radius: var(--radius-lg);
+            position: relative;
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .modal-img-content {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar" class="glass-nav">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <img src="WhatsApp Image 2026-10-07 at 7.29.27 AM.jpeg" alt="Ahmed Bashiir Mohamed" class="pic-avatar">
+                <span>AHMED BASHIIR</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary btn-sm desktop-cv-btn">
+                <span>Download CV</span>
+            </a>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu">
+                <span style="font-size: 1.5rem; line-height: 1;">☰</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 20px;">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Ahmed Bashiir" class="pic-avatar">
+                <span>AHMED BASHIIR</span>
+            </div>
+            <button class="modal-close" id="mobileCloseBtn" style="position: relative; top:0; right:0;" aria-label="Close menu">✕</button>
+        </div>
+
+        <div class="mobile-menu-links">
+            <a href="#home" class="mobile-nav-item"><span>Home</span> <span>→</span></a>
+            <a href="#about" class="mobile-nav-item"><span>About</span> <span>→</span></a>
+            <a href="#skills" class="mobile-nav-item"><span>Skills</span> <span>→</span></a>
+            <a href="#experience" class="mobile-nav-item"><span>Experience</span> <span>→</span></a>
+            <a href="#projects" class="mobile-nav-item"><span>Projects</span> <span>→</span></a>
+            <a href="#services" class="mobile-nav-item"><span>Services</span> <span>→</span></a>
+            <a href="#contact" class="mobile-nav-item"><span>Contact</span> <span>→</span></a>
+        </div>
+
+        <div style="margin-top: auto; padding-top: 20px;">
+            <a href="#contact" class="btn btn-primary" style="width: 100%;">
+                <span>Download CV</span>
+            </a>
+        </div>
+    </div>
+
+    <section id="home">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <div class="section-badge">
+                    <span>💻 IT STUDENT • COMPUTER APPLICATIONS</span>
+                </div>
+                <h1>Hi, I'm <span class="gradient-text">Ahmed Bashiir Mohamed</span></h1>
+                <h2>IT Student & Computer Applications Specialist</h2>
+                <p class="hero-bio">
+                    Passionate about modern full-stack development, data analytics, digital video production, and commercial IT hardware support. Dedicated to creating high-efficiency tech solutions and digital experiences.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Portfolio</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Contact Me</span>
+                    </a>
+                </div>
+
+                <div class="social-strip">
+                    <a href="https://github.com" target="_blank" class="social-chip" title="GitHub Profile">
+                        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=80&q=80" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-chip" title="LinkedIn Profile">
+                        <img src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?auto=format&fit=crop&w=80&q=80" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="mailto:ahmed.bashiir@example.com" class="social-chip" title="Email Direct">
+                        <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=80&q=80" alt="Email">
+                        <span>Email Direct</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-frame-wrapper">
+                <div class="hero-frame">
+                    <img src="WhatsApp Image 2026-10-07 at 7.29.27 AM.jpeg" alt="Ahmed Bashiir Mohamed Portrait" class="hero-img">
+
+                    <div class="floating-badge badge-1">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=80&q=80" alt="Full Stack">
+                        <div>
+                            <span>Full-Stack</span>
+                            <div style="font-size: 0.7rem; color: var(--text-dim);">HTML/CSS/JS</div>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge badge-2">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=80&q=80" alt="Data Analysis">
+                        <div>
+                            <span>Data Analytics</span>
+                            <div style="font-size: 0.7rem; color: var(--text-dim);">Insights & SQL</div>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge badge-3">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=80&q=80" alt="Media Support">
+                        <div>
+                            <span>Media & Tech</span>
+                            <div style="font-size: 0.7rem; color: var(--text-dim);">Camera & Printing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr)); gap: clamp(32px, 5vw, 60px); align-items: center;">
+                <div>
+                    <div class="section-badge">
+                        <span>🎓 Background</span>
+                    </div>
+                    <h2 class="section-title">Driven by Technology & Continuous Learning</h2>
+                    <p style="color: var(--text-muted); font-size: var(--step-0); margin-bottom: 20px;">
+                        I am an Information Technology student specializing in Computer Applications. My journey spans software engineering fundamentals, database systems, digital photography, video production, and commercial tech support.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: var(--step-0); margin-bottom: 28px;">
+                        Whether developing modern web applications, optimizing office printing systems, or shooting high-definition video content, I bring a structured problem-solving approach and extreme attention to detail.
+                    </p>
+
+                    <div class="auto-grid-250" style="margin-top: 24px;">
+                        <div class="info-item">
+                            <div class="info-label">Full Name</div>
+                            <div class="info-value">Ahmed Bashiir Mohamed</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Academic Field</div>
+                            <div class="info-value">Information Technology</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Specialization</div>
+                            <div class="info-value">Computer Applications</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Current Status</div>
+                            <div class="info-value">Undergraduate Student</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auto-grid-250">
+                    <div class="glass-card stat-card">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=150&q=80" alt="Student">
+                        <div>
+                            <div class="stat-number counter" data-target="1">0</div>
+                            <div class="stat-label">Dedicated IT Student</div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card stat-card">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=150&q=80" alt="Tech Domains">
+                        <div>
+                            <div class="stat-number counter" data-target="6">0</div>
+                            <div class="stat-label">Technical Domains</div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card stat-card">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=150&q=80" alt="Languages">
+                        <div>
+                            <div class="stat-number counter" data-target="3">0</div>
+                            <div class="stat-label">Languages Spoken</div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card stat-card">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=150&q=80" alt="Work Roles">
+                        <div>
+                            <div class="stat-number counter" data-target="3">0</div>
+                            <div class="stat-label">Practical Work Roles</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-badge">
+                <span>⚡ Capabilities</span>
+            </div>
+            <h2 class="section-title">Technical Expertise & Skills</h2>
+            <p class="section-subtitle">A balanced toolkit combining core computer application skills, web design, multimedia production, and physical IT troubleshooting.</p>
+
+            <div class="auto-grid-300">
+                <div class="glass-card skill-card">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Full-Stack Dev">
+                        <h3 style="color:#fff; margin-bottom: 8px;">Full-Stack Development</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem;">Building responsive frontend user interfaces and structured backend databases.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">MySQL</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Data Analysis">
+                        <h3 style="color:#fff; margin-bottom: 8px;">Data Analysis</h3>
+                    </div>
+                    <div>
+                        <p style="color:var(--text-muted); font-size:0.9rem;">Analyzing datasets, managing spreadsheets, and crafting reports for decision making.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tech-badge">MS Excel</span>
+                        <span class="tech-badge">Data Entry</span>
+                        <span class="tech-badge">Reporting</span>
+                        <span class="tech-badge">SQL</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Camera & Video">
+                        <h3 style="color:#fff; margin-bottom: 8px;">Camera & Video Editing</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem;">Professional digital video recording, scene composition, and timeline editing.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tech-badge">Camera Operation</span>
+                        <span class="tech-badge">Premiere Pro</span>
+                        <span class="tech-badge">Lighting</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Printing Support">
+                        <h3 style="color:#fff; margin-bottom: 8px;">Printing & Tech Support</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem;">High-volume commercial printing, printer hardware diagnostic, and computer setup.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tech-badge">Hardware Diagnostic</span>
+                        <span class="tech-badge">Large Format</span>
+                        <span class="tech-badge">Maintenance</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Web Development">
+                        <h3 style="color:#fff; margin-bottom: 8px;">Web UI Design</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem;">Designing clean, modern user interfaces with smooth interactions and accessibility.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tech-badge">Glassmorphism</span>
+                        <span class="tech-badge">Mobile Responsive</span>
+                        <span class="tech-badge">UX Design</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skill-card">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Computer Applications">
+                        <h3 style="color:#fff; margin-bottom: 8px;">Computer Applications</h3>
+                        <p style="color:var(--text-muted); font-size:0.9rem;">Deep proficiency in office productivity tools, operating systems, and file management.</p>
+                    </div>
+                    <div class="tag-container">
+                        <span class="tech-badge">MS Office Suite</span>
+                        <span class="tech-badge">Windows Admin</span>
+                        <span class="tech-badge">Troubleshooting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-badge">
+                <span>💼 Career History</span>
+            </div>
+            <h2 class="section-title">Practical Experience</h2>
+            <p class="section-subtitle">Real-world roles where technology, operations, and media production overlap.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">IT & Academic Support Assistant</h3>
+                                <div class="timeline-company">
+                                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=80&q=80" class="pic-avatar" style="width:28px; height:28px;" alt="Dero">
+                                    Dero Institute
+                                </div>
+                            </div>
+                            <span class="timeline-period">Current / Recent</span>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Assisted in managing computer lab stations, installing required software applications for student coursework.</li>
+                            <li>Provided active troubleshooting for computer networking, user access, and system preferences.</li>
+                            <li>Organized digital records, student enrollment databases, and practical lab assignment materials.</li>
+                        </ul>
+                        <div class="timeline-media">
+                            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80" alt="Dero Institute Lab" onclick="openImageModal(this.src)">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80" alt="Tech Setup" onclick="openImageModal(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Printing Operations & Technical Specialist</h3>
+                                <div class="timeline-company">
+                                    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=80&q=80" class="pic-avatar" style="width:28px; height:28px;" alt="Nasiib">
+                                    Nasiib Printer Center
+                                </div>
+                            </div>
+                            <span class="timeline-period">Professional Role</span>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Operated commercial printing machinery, ensuring optimal color accuracy and high-speed production output.</li>
+                            <li>Performed routine maintenance, ink cartridge replacement, and hardware diagnostics on print equipment.</li>
+                            <li>Prepared complex documents, promotional banners, and graphic layouts according to customer specifications.</li>
+                            <li>Delivered end-user IT support and setup for office workstations connected to central network printers.</li>
+                        </ul>
+                        <div class="timeline-media">
+                            <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=400&q=80" alt="Printing Equipment" onclick="openImageModal(this.src)">
+                            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=400&q=80" alt="Print Service" onclick="openImageModal(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Camera Operator & Video Editor</h3>
+                                <div class="timeline-company">
+                                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=80&q=80" class="pic-avatar" style="width:28px; height:28px;" alt="Bulaal Studio">
+                                    Bulaal Studio
+                                </div>
+                            </div>
+                            <span class="timeline-period">Media Specialist</span>
+                        </div>
+                        <ul class="experience-bullets">
+                            <li>Handled HD and 4K digital camera operations for studio interviews, events, and commercial shoots.</li>
+                            <li>Edited raw video footage into polished final assets with visual effects, title overlays, and sound balancing.</li>
+                            <li>Managed digital media assets, backup storage servers, and export configurations for web and broadcast.</li>
+                        </ul>
+                        <div class="timeline-media">
+                            <img src="https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?auto=format&fit=crop&w=400&q=80" alt="Camera Work" onclick="openImageModal(this.src)">
+                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=400&q=80" alt="Video Editing Desk" onclick="openImageModal(this.src)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-badge">
+                <span>🎨 Portfolio Showcase</span>
+            </div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Explore a selection of websites, tech applications, and digital media solutions I've developed.</p>
+
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="data">Data</button>
+                <button class="filter-btn" data-filter="media">Media</button>
+                <button class="filter-btn" data-filter="support">Tech Support</button>
+            </div>
+
+            <div class="auto-grid-300">
+                <div class="glass-card project-card" data-category="web">
+                    <div class="project-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" class="project-img" alt="Personal Portfolio">
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <p class="project-desc">A premium dark-themed portfolio built with modern CSS glassmorphism, responsive grid layout, and picture badges.</p>
+                        <div class="tag-container" style="margin-bottom: 20px;">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">Vanilla JS</span>
+                        </div>
+                        <div style="margin-top: auto;">
+                            <button onclick="openModal('Personal Portfolio', 'A self-contained portfolio designed to present qualifications, media production roles, and IT projects with glassmorphic aesthetics.')" class="btn btn-primary btn-sm" style="width: 100%;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card" data-category="data">
+                    <div class="project-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" class="project-img" alt="Student Attendance System">
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Student Attendance System</h3>
+                        <p class="project-desc">A data tracking application for monitoring class participation, generating monthly reports, and managing student profiles.</p>
+                        <div class="tag-container" style="margin-bottom: 20px;">
+                            <span class="tech-badge">Excel / SQL</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Reporting</span>
+                        </div>
+                        <div style="margin-top: auto;">
+                            <button onclick="openModal('Student Attendance System', 'Streamlines academic record management by digitizing student roll calls and automating percentage calculations.')" class="btn btn-primary btn-sm" style="width: 100%;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card" data-category="web">
+                    <div class="project-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80" class="project-img" alt="Insurance Portal">
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Insurance Company Website</h3>
+                        <p class="project-desc">A clean, professional web platform prototype for an insurance provider with quote requests and policy FAQs.</p>
+                        <div class="tag-container" style="margin-bottom: 20px;">
+                            <span class="tech-badge">Web Design</span>
+                            <span class="tech-badge">Form Handling</span>
+                            <span class="tech-badge">UI/UX</span>
+                        </div>
+                        <div style="margin-top: auto;">
+                            <button onclick="openModal('Insurance Portal', 'Designed to make insurance plans easily understandable for clients with intuitive navigation and lead forms.')" class="btn btn-primary btn-sm" style="width: 100%;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card" data-category="support">
+                    <div class="project-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=600&q=80" class="project-img" alt="Printing Center Website">
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Printing Center Service Hub</h3>
+                        <p class="project-desc">Digital platform showcasing commercial printing services, price lists, document upload options, and store location details.</p>
+                        <div class="tag-container" style="margin-bottom: 20px;">
+                            <span class="tech-badge">Tech Support</span>
+                            <span class="tech-badge">E-Service</span>
+                            <span class="tech-badge">Responsive</span>
+                        </div>
+                        <div style="margin-top: auto;">
+                            <button onclick="openModal('Printing Center Hub', 'Built to digitize order requests and provide customers quick access to printing hardware specs and formats.')" class="btn btn-primary btn-sm" style="width: 100%;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card" data-category="web">
+                    <div class="project-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80" class="project-img" alt="Tour Guide Website">
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Tour Guide & Travel Website</h3>
+                        <p class="project-desc">Visual travel platform featuring local destinations, booking inquiries, interactive maps, and gallery slideshows.</p>
+                        <div class="tag-container" style="margin-bottom: 20px;">
+                            <span class="tech-badge">Web Dev</span>
+                            <span class="tech-badge">Media Gallery</span>
+                            <span class="tech-badge">Interactivity</span>
+                        </div>
+                        <div style="margin-top: auto;">
+                            <button onclick="openModal('Tour Guide Website', 'Focuses on vibrant destination photos and user-friendly trip inquiry forms for international tourists.')" class="btn btn-primary btn-sm" style="width: 100%;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card project-card" data-category="media">
+                    <div class="project-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1533488765986-dfa2a9939acd?auto=format&fit=crop&w=600&q=80" class="project-img" alt="Business Websites & Media">
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">Commercial Business Web & Video</h3>
+                        <p class="project-desc">Custom web landing pages integrated with high-quality promotional videos produced for local client businesses.</p>
+                        <div class="tag-container" style="margin-bottom: 20px;">
+                            <span class="tech-badge">Video Production</span>
+                            <span class="tech-badge">Web Creation</span>
+                            <span class="tech-badge">Branding</span>
+                        </div>
+                        <div style="margin-top: auto;">
+                            <button onclick="openModal('Commercial Media Project', 'Combines video production with custom website implementation to help regional businesses grow online.')" class="btn btn-primary btn-sm" style="width: 100%;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="section-badge">
+                <span>🛠️ What I Offer</span>
+            </div>
+            <h2 class="section-title">Services & Solutions</h2>
+            <p class="section-subtitle">Tailored technical and creative services tailored to meet business and individual needs.</p>
+
+            <div class="auto-grid-300">
+                <div class="glass-card service-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Web Development">
+                    <h3 style="color:#fff; margin-bottom: 12px;">Web Development</h3>
+                    <p>Building responsive, modern, and accessible websites structured with clean code and high aesthetic standard.</p>
+                    <button class="btn btn-secondary btn-sm" style="margin-top:auto;" onclick="openModal('Web Development Service', 'Full-stack development services tailored to modern desktop and mobile browsers.')">Learn More</button>
+                </div>
+
+                <div class="glass-card service-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Data Analysis">
+                    <h3 style="color:#fff; margin-bottom: 12px;">Data Analysis & Entry</h3>
+                    <p>Organizing raw business data into clear spreadsheets, databases, summaries, and automated reporting formats.</p>
+                    <button class="btn btn-secondary btn-sm" style="margin-top:auto;" onclick="openModal('Data Analysis Service', 'Data cleanup, Excel formula setup, database structuring, and reporting insights.')">Learn More</button>
+                </div>
+
+                <div class="glass-card service-card">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Video Editing">
+                    <h3 style="color:#fff; margin-bottom: 12px;">Video Production & Editing</h3>
+                    <p>Editing commercial videos, interviews, events, and promo clips with professional transitions and sound polish.</p>
+                    <button class="btn btn-secondary btn-sm" style="margin-top:auto;" onclick="openModal('Video Editing Service', 'Post-production editing using industry software for social media, TV, or web display.')">Learn More</button>
+                </div>
+
+                <div class="glass-card service-card">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Camera Services">
+                    <h3 style="color:#fff; margin-bottom: 12px;">Camera & Event Filming</h3>
+                    <p>On-location camera operation for events, institutional coverage, corporate video shoots, and creative projects.</p>
+                    <button class="btn btn-secondary btn-sm" style="margin-top:auto;" onclick="openModal('Camera Filming Service', 'On-site camera recording with professional composition and lighting setups.')">Learn More</button>
+                </div>
+
+                <div class="glass-card service-card">
+                    <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Printing Support">
+                    <h3 style="color:#fff; margin-bottom: 12px;">Printing & Hardware Support</h3>
+                    <p>Commercial printer configuration, troubleshooting document layouts, and maintaining workplace printer systems.</p>
+                    <button class="btn btn-secondary btn-sm" style="margin-top:auto;" onclick="openModal('Printing Hardware Support', 'Technical hardware setup, network printer configuration, and high-quality print production.')">Learn More</button>
+                </div>
+
+                <div class="glass-card service-card">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Website Design">
+                    <h3 style="color:#fff; margin-bottom: 12px;">Website Redesign & UI Refresh</h3>
+                    <p>Upgrading outdated client websites with dark mode styling, glassmorphism, responsive navigation, and fast load speeds.</p>
+                    <button class="btn btn-secondary btn-sm" style="margin-top:auto;" onclick="openModal('Website Redesign Service', 'Transform existing web assets into high-converting, modern digital experiences.')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <div class="section-badge">
+                <span>📚 Academic Path</span>
+            </div>
+            <h2 class="section-title">Education & Qualifications</h2>
+            <p class="section-subtitle">Formal study and continuous skill development in Information Technology.</p>
+
+            <div class="glass-card" style="padding: clamp(24px, 4vw, 36px);">
+                <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=200&q=80" style="width: 100px; height: 100px; border-radius: 20px; object-fit: cover; border: 2px solid var(--primary);" alt="University">
+                    <div style="flex: 1; min-width: 260px;">
+                        <span style="display:inline-block; padding: 4px 14px; background: rgba(59,130,246,0.15); color: var(--accent-light); border-radius: 100px; font-size:0.8rem; font-weight:700; margin-bottom: 10px;">CURRENTLY STUDYING</span>
+                        <h3 style="font-size: var(--step-1); color:#fff;">Information Technology - Computer Applications</h3>
+                        <p style="color: var(--accent-light); font-weight:600; margin-bottom: 8px;">Undergraduate Degree Program</p>
+                        <p style="color: var(--text-muted); font-size: var(--step-0);">
+                            Focusing on computer application development, database architecture, software engineering, and network troubleshooting. Actively participating in programming challenges and practical technical workshops.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="languages">
+        <div class="container">
+            <div class="section-badge">
+                <span>🌐 Communication</span>
+            </div>
+            <h2 class="section-title">Language Proficiency</h2>
+            <p class="section-subtitle">Multilingual abilities for effective communication in diverse, international environments.</p>
+
+            <div class="auto-grid-300">
+                <div class="glass-card lang-card">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=150&q=80" class="lang-img" alt="Somali Language">
+                    <div>
+                        <h4 style="color:#fff; font-size:var(--step-1);">Somali</h4>
+                        <div style="color: var(--accent-light); font-weight:600; font-size:0.85rem;">Native Speaker</div>
+                        <p style="color: var(--text-dim); font-size: 0.82rem; margin-top:4px;">Flawless written & spoken fluency</p>
+                    </div>
+                </div>
+
+                <div class="glass-card lang-card">
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=150&q=80" class="lang-img" alt="English Language">
+                    <div>
+                        <h4 style="color:#fff; font-size:var(--step-1);">English</h4>
+                        <div style="color: var(--accent-light); font-weight:600; font-size:0.85rem;">Working Proficiency</div>
+                        <p style="color: var(--text-dim); font-size: 0.82rem; margin-top:4px;">Technical documentation & web projects</p>
+                    </div>
+                </div>
+
+                <div class="glass-card lang-card">
+                    <img src="https://images.unsplash.com/photo-1512632578888-169bbbc64f33?auto=format&fit=crop&w=150&q=80" class="lang-img" alt="Arabic Language">
+                    <div>
+                        <h4 style="color:#fff; font-size:var(--step-1);">Arabic</h4>
+                        <div style="color: var(--accent-light); font-weight:600; font-size:0.85rem;">Working Proficiency</div>
+                        <p style="color: var(--text-dim); font-size: 0.82rem; margin-top:4px;">Professional business communication</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-me">
+        <div class="container">
+            <div class="section-badge">
+                <span>⭐ Value Proposition</span>
+            </div>
+            <h2 class="section-title">Why Work With Me?</h2>
+            <p class="section-subtitle">Core qualities that ensure high quality outcomes on every collaboration.</p>
+
+            <div class="auto-grid-300">
+                <div class="glass-card feature-card">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Continuous Learner">
+                    <h4>Continuous Learner</h4>
+                    <p>Constantly staying updated with latest web frameworks, IT systems, and digital media tools.</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Problem Solver">
+                    <h4>Practical Problem Solver</h4>
+                    <p>Direct experience handling hardware printer failures, camera settings, and web code bugs.</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Creative & Technical">
+                    <h4>Creative & Technical Blend</h4>
+                    <p>Bridging the gap between strict code logic and visually pleasing media content.</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Reliable">
+                    <h4>Reliable & Punctual</h4>
+                    <p>Committed to delivering projects, document setups, and studio footage on schedule.</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Detail Oriented">
+                    <h4>Detail Oriented</h4>
+                    <p>High standard for print alignment, video color grading, and clean source code structure.</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" class="picture-card-img" alt="Passionate Tech">
+                    <h4>Passionate About Technology</h4>
+                    <p>Enthusiastic about leveraging technology to build efficient systems and digital tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Building My Future in Technology</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; font-size: var(--step-0);">
+                    I am actively seeking internship opportunities, freelance web/media projects, and collaborative IT roles. Let's create something exceptional.
+                </p>
+                <a href="#contact" class="btn btn-primary">
+                    <span>Let's Work Together</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-badge">
+                <span>✉️ Get In Touch</span>
+            </div>
+            <h2 class="section-title">Contact Me</h2>
+            <p class="section-subtitle">Have a project inquiry, job opportunity, or tech question? Send me a message below.</p>
+
+            <div class="contact-grid">
+                <div>
+                    <div class="glass-card contact-card-item">
+                        <img src="https://images.unsplash.com/photo-1534536281715-e28d76741772?auto=format&fit=crop&w=120&q=80" alt="Email Direct">
+                        <div>
+                            <div class="info-label">Direct Email</div>
+                            <a href="mailto:ahmed.bashiir@example.com" style="color:#fff; font-weight:600; text-decoration:none; font-size: var(--step-0);">ahmed.bashiir@example.com</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card contact-card-item">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=120&q=80" alt="Phone Direct">
+                        <div>
+                            <div class="info-label">Phone / WhatsApp</div>
+                            <a href="tel:+252600000000" style="color:#fff; font-weight:600; text-decoration:none; font-size: var(--step-0);">+252 60 000 0000</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card contact-card-item">
+                        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=120&q=80" alt="Location">
+                        <div>
+                            <div class="info-label">Location</div>
+                            <div style="color:#fff; font-weight:600; font-size: var(--step-0);">Available Remotely & Locally</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="e.g. Hassan Ali" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email Address</label>
+                            <input type="email" id="email" class="form-input" placeholder="e.g. hassan@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-input" placeholder="Project Inquiry / Job Opportunity" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-textarea" placeholder="Write your message details here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#home" class="logo">
+                    <img src="WhatsApp Image 2026-10-07 at 7.29.27 AM.jpeg" class="pic-avatar" alt="Ahmed Bashiir">
+                    <span>AHMED BASHIIR MOHAMED</span>
+                </a>
+
+                <div class="social-strip">
+                    <a href="https://github.com" target="_blank" class="social-chip">
+                        <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=80&q=80" alt="GitHub">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-chip">
+                        <img src="https://images.unsplash.com/photo-1611944212129-29977ae1398c?auto=format&fit=crop&w=80&q=80" alt="LinkedIn">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Ahmed Bashiir Mohamed. All Rights Reserved. IT Student • Computer Applications.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Back to Top">
+        ▲
+    </button>
+
+    <!-- Custom Modal Dialog (Alert replacement) -->
+    <div class="modal-overlay" id="customModal">
+        <div class="glass-card modal-box">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <h3 id="modalTitle" style="color: #fff; font-size: var(--step-2); margin-bottom: 12px;">Notice</h3>
+            <p id="modalDesc" style="color: var(--text-muted); font-size: var(--step-0); margin-bottom: 24px;"></p>
+            <div id="modalBody"></div>
+            <button class="btn btn-primary btn-sm" onclick="closeModal()" style="margin-top: 16px;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+
+        function toggleMobileMenu() {
+            const isOpen = mobileMenu.classList.toggle('open');
+            if (isOpen) {
+                document.body.classList.add('no-scroll');
+            } else {
+                document.body.classList.remove('no-scroll');
+            }
+        }
+
+        mobileToggle.addEventListener('click', toggleMobileMenu);
+        if(mobileCloseBtn) {
+            mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+        }
+
+        document.querySelectorAll('.mobile-nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 130;
+                const sectionHeight = section.offsetHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            const backToTopBtn = document.getElementById('backToTop');
+            if (scrollPos > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+
+        window.addEventListener('scroll', () => {
+            const statsSection = document.getElementById('about');
+            if (!statsSection) return;
+            const pos = statsSection.getBoundingClientRect().top;
+            const winHeight = window.innerHeight;
+
+            if (pos < winHeight && !animated) {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+
+                    const updateCount = () => {
+                        count += Math.ceil(target / 15);
+                        if (count < target) {
+                            counter.innerText = count + "+";
+                            setTimeout(updateCount, 60);
+                        } else {
+                            counter.innerText = target + "+";
+                        }
+                    };
+                    updateCount();
+                });
+                animated = true;
+            }
+        });
+
+        function openModal(title, desc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalBody').innerHTML = '';
+            document.getElementById('customModal').classList.add('active');
+            document.body.classList.add('no-scroll');
+        }
+
+        function openImageModal(imgSrc) {
+            document.getElementById('modalTitle').innerText = "Media Preview";
+            document.getElementById('modalDesc').innerText = "";
+            document.getElementById('modalBody').innerHTML = `<img src="${imgSrc}" class="modal-img-content" alt="Preview">`;
+            document.getElementById('customModal').classList.add('active');
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeModal() {
+            document.getElementById('customModal').classList.remove('active');
+            document.body.classList.remove('no-scroll');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            openModal(
+                "Message Sent Successfully!",
+                `Thank you, ${name}. Your message has been received. Ahmed Bashiir Mohamed will respond to ${email} shortly.`
+            );
+
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>
